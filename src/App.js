@@ -3,11 +3,13 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { showModal } from 'redux-saga-modal';
 import { ConfirmModal, CancelModal } from './modals';
-import { MODAL_TYPES } from './saga';
+import MODAL_TYPES from './modalTypes';
 import { Layout, Icon, Col, Menu, Row } from 'antd';
 import { Table } from './page';
+import * as routines from './routines';
 
 const App = (props) => {
+  const { removeUserTrigger } = props;
   return (
     <Layout>
       <Layout.Sider
@@ -37,14 +39,11 @@ const App = (props) => {
       <Layout.Content>
         <Row>
           <Col span={12} offset={5}>
-            <Table
-              onRemove={(item) =>
-                props.showModal(MODAL_TYPES.CONFIRM, item)
-              }
-            />
+            <Table onRemove={(item) => removeUserTrigger(item)} />
           </Col>
         </Row>
       </Layout.Content>
+
       <ConfirmModal />
       <CancelModal />
     </Layout>
@@ -55,6 +54,7 @@ const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
     {
       showModal,
+      removeUserTrigger: routines.removeUser.trigger,
     },
     dispatch
   );

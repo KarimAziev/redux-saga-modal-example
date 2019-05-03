@@ -2,7 +2,7 @@ import React from 'react';
 import ReactModal from './ReactModal';
 import { Button } from 'antd';
 import { sagaModal } from 'redux-saga-modal';
-import { MODAL_TYPES } from 'saga';
+import MODAL_TYPES from '../modalTypes';
 
 const CancelModal = (props) => {
   const {

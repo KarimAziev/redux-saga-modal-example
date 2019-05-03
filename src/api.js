@@ -12,6 +12,7 @@ const mockApi = (
 const api = {
   save: mockApi,
   fetch: mockApi,
+  remove: mockApi,
 };
 
 export default api;

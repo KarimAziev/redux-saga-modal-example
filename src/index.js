@@ -9,7 +9,7 @@ import { applyMiddleware, compose, createStore } from 'redux';
 import DevTools from './devTools';
 import { createLogger } from 'redux-logger';
 import reducer from './reducer';
-import rootSaga from './saga';
+import rootSaga from './sagas';
 
 const logger = createLogger();
 const sagaMiddleware = createSagaMiddleware();

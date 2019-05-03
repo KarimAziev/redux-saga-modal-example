@@ -1,6 +1,6 @@
 import React from 'react';
 import { sagaModal } from 'redux-saga-modal';
-import { MODAL_TYPES } from 'saga';
+import MODAL_TYPES from '../modalTypes';
 import 'rc-dialog/assets/index.css';
 import { Modal, Button } from 'antd';
 
@@ -11,7 +11,7 @@ const ConfirmModal = (props) => {
     isOpen,
     text,
     title,
-    click,
+    confirm,
     hide,
     confirmBtn,
     cancelBtn,
@@ -25,6 +25,7 @@ const ConfirmModal = (props) => {
       visible={isOpen}
       title={title}
       onCancel={hide}
+      onOk={confirm}
       animation='zoom'
       maskAnimation='fade'
       {...rest}
@@ -47,8 +48,7 @@ ConfirmModal.Button = ({ showModal, ...rest }) => (
 export default sagaModal({
   name: modalName,
   initProps: {
-    text:
-      'Click save for a long request and then immediatelly click cancel',
+    text: '',
     title: 'Save changes?',
     okButtonProps: {
       title: 'Confirm',

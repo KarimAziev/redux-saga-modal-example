@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import ConfirmModal from './ConfirmModal';
 import { Layout, Col, Row, Divider, Table, Spin } from 'antd';
 import { routines, usersSelector } from './users';
+import './index.css';
 
 const App = ({ users, removeUser }) => {
   const columns = [

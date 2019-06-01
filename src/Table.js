@@ -44,7 +44,7 @@ const TableList = (props) => {
       render: (text, record) => (
         <span>
           <Divider type='vertical' />
-          <a href='javascript:;' onClick={() => onRemove(text)}>
+          <a href='javascript:;' onClick={() => onRemove(record.key)}>
             Delete
           </a>
         </span>

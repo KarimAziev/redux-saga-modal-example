@@ -1,6 +1,3 @@
-const MODAL_TYPES = {
+export default {
   CONFIRM: 'ConfirmModal',
-  CANCEL: 'CancelModal',
 };
-
-export default MODAL_TYPES;

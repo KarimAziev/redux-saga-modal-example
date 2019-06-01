@@ -1,8 +1,8 @@
 import React from 'react';
 import { sagaModal } from 'redux-saga-modal';
-import MODAL_TYPES from '../modalTypes';
+import MODAL_TYPES from './modalTypes';
 import 'rc-dialog/assets/index.css';
-import { Modal, Button } from 'antd';
+import { Modal } from 'antd';
 
 const modalName = MODAL_TYPES.CONFIRM;
 
@@ -11,12 +11,10 @@ const ConfirmModal = (props) => {
     isOpen,
     text,
     title,
-    confirm,
+    submit,
     hide,
-    confirmBtn,
-    cancelBtn,
-    onCancel,
-    onOk,
+    loading,
+    okButtonProps,
     ...rest
   } = props;
 
@@ -25,11 +23,14 @@ const ConfirmModal = (props) => {
       visible={isOpen}
       title={title}
       onCancel={hide}
-      onOk={confirm}
-      animation='zoom'
-      maskAnimation='fade'
-      {...rest}
-    >
+      onOk={({ target }) => submit(target.value)}
+      animation={'zoom'}
+      maskAnimation={'fade'}
+      okButtonProps={{
+        loading: loading,
+        ...okButtonProps,
+      }}
+      {...rest}>
       {text}
     </Modal>
   );
@@ -41,22 +42,12 @@ ConfirmModal.defaultProps = {
 
 ConfirmModal.displayName = modalName;
 
-ConfirmModal.Button = ({ showModal, ...rest }) => (
-  <Button onClick={() => showModal(modalName)} {...rest} />
-);
-
 export default sagaModal({
   name: modalName,
   initProps: {
     text: '',
-    title: 'Save changes?',
-    okButtonProps: {
-      title: 'Confirm',
-      loading: false,
-      htmlType: 'submit',
-    },
-    cancelButtonProps: {
-      title: 'Cancel',
-    },
+    title: 'Delete user?',
   },
+  destroyOnHide: false,
+  keepComponentOnHide: true,
 })(ConfirmModal);

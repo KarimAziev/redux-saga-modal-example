@@ -1,10 +1,17 @@
 import * as React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import ConfirmModal from './ConfirmModal';
-import { Layout, Col, Row, Divider, Table, Spin } from 'antd';
+import Modal from './Modal';
 import { routines, usersSelector } from './users';
+import Table from 'rc-table';
+import Animate from 'rc-animate';
+import 'rc-table/assets/index.css';
+import 'rc-table/assets/animation.css';
 import './index.css';
+
+const AnimateBody = (props) => (
+  <Animate transitionName={'move'} component={'tbody'} {...props} />
+);
 
 const App = ({ users, removeUser }) => {
   const columns = [
@@ -21,27 +28,30 @@ const App = ({ users, removeUser }) => {
     {
       title: 'Action',
       key: 'action',
+
       render: (text, record) => (
-        <Spin spinning={!!record.loading} key={record.key}>
-          <span>
-            <Divider type={'vertical'} />
-            <a onClick={() => removeUser(record.key)}>Delete</a>
-          </span>
-        </Spin>
+        <span>
+          <button
+            className={'action'}
+            onClick={() => removeUser(record.key)}>
+            Delete
+          </button>
+        </span>
       ),
     },
   ];
 
   return (
-    <Layout>
-      <Row>
-        <Col span={12}>
-          <Table dataSource={users} columns={columns} />
-        </Col>
-      </Row>
-
-      <ConfirmModal />
-    </Layout>
+    <section>
+      <Table
+        data={users}
+        columns={columns}
+        components={{
+          body: { wrapper: AnimateBody },
+        }}
+      />
+      <Modal />
+    </section>
   );
 };
 

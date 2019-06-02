@@ -8,7 +8,118 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+section {
+  padding-right: 300px;
+}
+
+.row {
+  font-size: 14px;
+  height: 70px;
+}
+
+.ReactModal__Overlay {
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease;
+  padding-right: 300px;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+.modal {
+  margin: auto;
+  position: relative;
+  top: 40px;
+  border: 1px solid rgb(204, 204, 204);
+  background: rgb(255, 255, 255);
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  width: 80%;
+  max-width: 400px;
+  padding: 20px;
+  resize: horizontal;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  animation-name: animatetop;
+  animation-duration: 0.1s;
+}
+
+.ReactModal__Overlay--before-close .modal {
+  animation-name: animatebottom;
+  animation-duration: 0.1s;
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+@keyframes animatebottom {
+  from {
+    top: 40;
+    opacity: 1;
+  }
+  to {
+    top: -300;
+    opacity: 0;
+  }
+}
+.button {
+  border: none;
+  padding: 10px 24px;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  opacity: 0.9;
+  transition: background-color opacity 0.2s;
+  cursor: pointer;
+}
+
+.theme__primary {
+  background-color: #555555;
+  color: white;
+}
+
+.theme__primary:hover {
+  opacity: 0.8;
+}
+
+.theme__primary:active {
+  background-color: black;
+}
+
+.theme__secondary {
+  background-color: #e7e7e7;
+  color: black;
+}
+
+.action {
+  color: #1890ff;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.action:hover {
+  color: #40a9ff;
+}
+
+.action:active {
+  color: #40a9ff;
 }

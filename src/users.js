@@ -29,7 +29,7 @@ export default (state = initialState, action) => {
       ...state,
       [action.payload]: {
         ...state[action.payload],
-        loading: true,
+        deleting: true,
       },
     };
 
@@ -43,4 +43,5 @@ export default (state = initialState, action) => {
   }
 };
 
-export const usersSelector = (state) => Object.values(state.users);
+export const usersSelector = (state) =>
+  Object.values(state.users).filter((item) => !item.deleting);

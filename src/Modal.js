@@ -25,7 +25,7 @@ const Modal = ({
   <ReactModal
     isOpen={isOpen}
     onRequestClose={hide}
-    closeTimeoutMS={200}
+    closeTimeoutMS={500}
     className={'modal'}>
     <h3>
       {ownProps.title}

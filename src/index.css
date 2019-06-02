@@ -8,18 +8,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+section {
+  padding-right: 300px;
 }
 
-button {
-  padding: 5px 10px;
+.row {
+  font-size: 14px;
+  height: 70px;
 }
 
 .ReactModal__Overlay {
   opacity: 0;
-  transition: opacity 0.2s ease;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease;
+  padding-right: 300px;
 }
 
 .ReactModal__Overlay--after-open {
@@ -31,19 +33,49 @@ button {
 }
 
 .modal {
-  position: absolute;
+  margin: auto;
+  position: relative;
   top: 40px;
-  left: 40px;
-  right: 40px;
   border: 1px solid rgb(204, 204, 204);
   background: rgb(255, 255, 255);
   overflow: auto;
   border-radius: 4px;
   outline: none;
-  max-width: 360px;
+  width: 80%;
+  max-width: 400px;
   padding: 20px;
+  resize: horizontal;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  animation-name: animatetop;
+  animation-duration: 0.1s;
 }
 
+.ReactModal__Overlay--before-close .modal {
+  animation-name: animatebottom;
+  animation-duration: 0.1s;
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+@keyframes animatebottom {
+  from {
+    top: 40;
+    opacity: 1;
+  }
+  to {
+    top: -300;
+    opacity: 0;
+  }
+}
 .button {
   border: none;
   padding: 10px 24px;
@@ -53,17 +85,21 @@ button {
   display: inline-block;
   font-size: 16px;
   opacity: 0.9;
-  transition: opacity 0.2s;
+  transition: background-color opacity 0.2s;
   cursor: pointer;
-}
-
-.button:hover {
-  opacity: 1;
 }
 
 .theme__primary {
   background-color: #555555;
   color: white;
+}
+
+.theme__primary:hover {
+  opacity: 0.8;
+}
+
+.theme__primary:active {
+  background-color: black;
 }
 
 .theme__secondary {

@@ -108,7 +108,7 @@ module.exports = {
       },
     ],
     'react/no-unused-state': WARN,
-    'react/button-has-type': WARN,
+    'react/button-has-type': OFF,
     'react/prop-types': OFF,
     'no-underscore-dangle': OFF,
   },

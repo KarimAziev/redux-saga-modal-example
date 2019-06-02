@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import ConfirmModal from './ConfirmModal';
-import { Layout, Col, Row, Divider, Table, Spin } from 'antd';
+import Modal from './Modal';
+import Table from 'rc-table';
 import { routines, usersSelector } from './users';
 import './index.css';
 
@@ -22,26 +22,22 @@ const App = ({ users, removeUser }) => {
       title: 'Action',
       key: 'action',
       render: (text, record) => (
-        <Spin spinning={!!record.loading} key={record.key}>
-          <span>
-            <Divider type={'vertical'} />
-            <a onClick={() => removeUser(record.key)}>Delete</a>
-          </span>
-        </Spin>
+        <span>
+          <button
+            className={'action'}
+            onClick={() => removeUser(record.key)}>
+            Delete
+          </button>
+        </span>
       ),
     },
   ];
 
   return (
-    <Layout>
-      <Row>
-        <Col span={12}>
-          <Table dataSource={users} columns={columns} />
-        </Col>
-      </Row>
-
-      <ConfirmModal />
-    </Layout>
+    <section>
+      <Table data={users} columns={columns} />
+      <Modal />
+    </section>
   );
 };
 

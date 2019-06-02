@@ -12,3 +12,78 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+button {
+  padding: 5px 10px;
+}
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+.modal {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  border: 1px solid rgb(204, 204, 204);
+  background: rgb(255, 255, 255);
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  max-width: 360px;
+  padding: 20px;
+}
+
+.button {
+  border: none;
+  padding: 10px 24px;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 1;
+}
+
+.theme__primary {
+  background-color: #555555;
+  color: white;
+}
+
+.theme__secondary {
+  background-color: #e7e7e7;
+  color: black;
+}
+
+.action {
+  color: #1890ff;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.action:hover {
+  color: #40a9ff;
+}
+
+.action:active {
+  color: #40a9ff;
+}

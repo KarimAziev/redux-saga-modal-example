@@ -8959,10 +8959,10 @@ redux-logger@^3.0.6:
   dependencies:
     deep-diff "^0.3.5"
 
-redux-saga-modal@^0.4.8:
-  version "0.4.8"
-  resolved "https://registry.yarnpkg.com/redux-saga-modal/-/redux-saga-modal-0.4.8.tgz#d8477533949da9b5b4b77ec82041d6ca64a405fd"
-  integrity sha512-todSEczK5FpyeYlpgAh0xz2pexskgBPzKmxYgPTeKBhSewDMhC3PxS/WYVvCnL+lTxuD89dRYnwl7u2dglDJxA==
+redux-saga-modal@^0.4.11:
+  version "0.4.11"
+  resolved "https://registry.yarnpkg.com/redux-saga-modal/-/redux-saga-modal-0.4.11.tgz#f356b6b988def06952eca4b0edd02da47ab1b10b"
+  integrity sha512-Ij2lRosaQTgJUcy153qzYh5giBTMmIukmupaTIu9DiHL7kI3TriKB9iyrW5QWZmWyZbSWPLoSdCh25tIeXg/aw==
   dependencies:
     "@redux-saga/is" "^1.0.2"
     hoist-non-react-statics "^2.0.0"

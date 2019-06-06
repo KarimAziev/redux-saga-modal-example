@@ -2,7 +2,6 @@ import { createModal } from 'redux-saga-modal';
 import {
   call,
   fork,
-  delay,
   all,
   select,
   put,
@@ -19,7 +18,6 @@ export default function* rootAppSaga() {
 
 export function* confirmModal(initProps) {
   const modal = createModal(MODAL_TYPES.CONFIRM);
-
   yield modal.show(initProps);
 
   const winner = yield race({

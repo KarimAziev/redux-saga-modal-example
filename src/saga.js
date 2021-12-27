@@ -9,7 +9,7 @@ import {
   race,
 } from 'redux-saga/effects';
 import { routines } from './users';
-import api from 'api';
+import api from './api';
 import MODAL_TYPES from './modalTypes';
 
 export default function* rootAppSaga() {

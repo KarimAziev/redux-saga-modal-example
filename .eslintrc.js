@@ -26,7 +26,7 @@ module.exports = {
     'no-bitwise': OFF,
     'no-inner-declarations': [ERROR, 'functions'],
     'no-multi-spaces': ERROR,
-    requireObjectKeysOnNewLine: true,
+    requireObjectKeysOnNewLine: 0,
     'no-restricted-syntax': [ERROR, 'WithStatement'],
     'no-shadow': ERROR,
     'no-unused-expressions': ERROR,
@@ -35,10 +35,6 @@ module.exports = {
     'array-callback-return': WARN,
     'object-curly-spacing': [ERROR, 'always'],
     'space-before-blocks': ERROR,
-    'object-property-newline': [
-      ERROR,
-      { allowMultiplePropertiesPerLine: false },
-    ],
     'class-methods-use-this': OFF,
     'space-before-function-paren': OFF,
     quotes: [ERROR, 'single'],
@@ -64,10 +60,7 @@ module.exports = {
     'react/no-is-mounted': OFF,
     'no-restricted-globals': WARN,
     'react/jsx-tag-spacing': [ERROR, { beforeSelfClosing: 'always' }],
-    'react/jsx-one-expression-per-line': [
-      ERROR,
-      { allow: 'literal' },
-    ],
+    'react/jsx-one-expression-per-line': [ERROR, { allow: 'literal' }],
     // This isn't useful in our test code
     'react/react-in-jsx-scope': ERROR,
     'react/no-array-index-key': WARN,

@@ -6,5 +6,5 @@
   "jsxSingleQuote": true,
   "arrowParens": "always",
   "insertPragma": false,
-  "printWidth": 70
+  "printWidth": 80
 }

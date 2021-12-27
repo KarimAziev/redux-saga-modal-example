@@ -4,14 +4,7 @@ import { connect } from 'react-redux';
 import Modal from './Modal';
 import { routines, usersSelector } from './users';
 import Table from 'rc-table';
-import Animate from 'rc-animate';
-import 'rc-table/assets/index.css';
-import 'rc-table/assets/animation.css';
 import './index.css';
-
-const AnimateBody = (props) => (
-  <Animate transitionName={'move'} component={'tbody'} {...props} />
-);
 
 const App = ({ users, removeUser }) => {
   const columns = [
@@ -31,9 +24,7 @@ const App = ({ users, removeUser }) => {
 
       render: (text, record) => (
         <span>
-          <button
-            className={'action'}
-            onClick={() => removeUser(record.key)}>
+          <button className={'action'} onClick={() => removeUser(record.key)}>
             Delete
           </button>
         </span>
@@ -43,13 +34,7 @@ const App = ({ users, removeUser }) => {
 
   return (
     <section>
-      <Table
-        data={users}
-        columns={columns}
-        components={{
-          body: { wrapper: AnimateBody },
-        }}
-      />
+      <Table data={users} columns={columns} />
       <Modal />
     </section>
   );

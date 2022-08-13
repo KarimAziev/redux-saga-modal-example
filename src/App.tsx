@@ -18,7 +18,7 @@ const UsersTable = memo(() => {
 
   useEffect(() => {
     dispatch(loadData.trigger());
-  }, []);
+  }, [dispatch]);
 
   const handleDeleteUser = (id: string) => {
     dispatch(removeUser.trigger(id));

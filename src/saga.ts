@@ -29,13 +29,16 @@ export const confirmModal = function*(initProps: ConfirmModalOwnProps) {
 export const removeUserWatcher = function*() {
   while (true) {
     const { payload: userId } = yield take(removeUser.trigger.toString());
-    const userName: string = yield select(
-      (state: RootState) => state.users.data[userId].name
-    );
 
+    const user: User = yield select((state: RootState) =>
+      state.users.data.find(({ id }) => id === userId)
+    );
+    if (!user) {
+      continue;
+    }
     const confirm: boolean = yield call(confirmModal, {
-      title: `Remove ${userName}?`,
-      text: `Are you sure want to remove ${userName}?`,
+      title: `Remove ${user.name}?`,
+      text: `Are you sure want to remove ${user.name}?`,
     });
 
     if (!confirm) {

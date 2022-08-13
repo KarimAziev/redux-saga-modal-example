@@ -29,10 +29,6 @@ const UsersTable = memo(() => {
       dataIndex: 'name' as 'name',
     },
     {
-      title: 'Country',
-      dataIndex: 'country' as 'country',
-    },
-    {
       title: 'Age',
       dataIndex: 'age' as 'age',
     },
@@ -53,7 +49,7 @@ const UsersTable = memo(() => {
   ];
 
   return (
-    <>
+    <div>
       {loading && <Preloader />}
       <table>
         <thead>
@@ -76,7 +72,7 @@ const UsersTable = memo(() => {
             ))}
         </tbody>
       </table>
-    </>
+    </div>
   );
 });
 

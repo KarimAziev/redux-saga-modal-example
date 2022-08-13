@@ -1,186 +1,186 @@
 body {
-  margin: auto;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-    'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: auto;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+                 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+                 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-  border: 1px solid blue;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 70%;
+    border: 1px solid blue;
 }
 
 td, th {
-  text-align: left;
+    padding: 10px;
+    text-align: left;
 
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+    background-color: #dddddd;
 }
 
 .ReactModal__Overlay {
-  opacity: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  transition: all 0.2s ease;
-  padding-right: 300px;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all 0.2s ease;
 }
 
 .ReactModal__Overlay--after-open {
-  opacity: 1;
+    opacity: 1;
 }
 
 .ReactModal__Overlay--before-close {
-  opacity: 0;
+    opacity: 0;
 }
 
 .modal {
-  margin: auto;
-  position: relative;
-  top: 40px;
-  border: 1px solid rgb(204, 204, 204);
-  background: rgb(255, 255, 255);
-  overflow: auto;
-  border-radius: 4px;
-  outline: none;
-  width: 80%;
-  max-width: 400px;
-  padding: 20px;
-  resize: horizontal;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  animation-name: animatetop;
-  animation-duration: 0.1s;
+    margin: auto;
+    position: relative;
+    top: 30%;
+    border: 1px solid rgb(204, 204, 204);
+    background: rgb(255, 255, 255);
+    overflow: auto;
+    border-radius: 4px;
+    outline: none;
+    width: 80%;
+    max-width: 400px;
+    padding: 20px;
+    resize: horizontal;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    animation-name: animatetop;
+    animation-duration: 0.1s;
 }
 
 .ReactModal__Overlay--before-close .modal {
-  animation-name: animatebottom;
-  animation-duration: 0.1s;
+    animation-name: animatebottom;
+    animation-duration: 0.1s;
 }
 
 @keyframes animatetop {
-  from {
-    top: -300px;
-    opacity: 0;
-  }
-  to {
-    top: 0;
-    opacity: 1;
-  }
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        opacity: 1;
+    }
 }
 @keyframes animatebottom {
-  from {
-    top: 40;
-    opacity: 1;
-  }
-  to {
-    top: -300;
-    opacity: 0;
-  }
+    from {
+        top: 40;
+        opacity: 1;
+    }
+    to {
+        top: -300;
+        opacity: 0;
+    }
 }
 .button {
-  border: none;
-  padding: 10px 24px;
-  outline: none;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  opacity: 0.9;
-  transition: background-color opacity 0.2s;
-  cursor: pointer;
+    border: none;
+    padding: 10px 24px;
+    outline: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    opacity: 0.9;
+    transition: background-color opacity 0.2s;
+    cursor: pointer;
 }
 
 .theme__primary {
-  background-color: #555555;
-  color: white;
+    background-color: #555555;
+    color: white;
 }
 
 .theme__primary:hover {
-  opacity: 0.8;
+    opacity: 0.8;
 }
 
 .theme__primary:active {
-  background-color: black;
+    background-color: black;
 }
 
 .theme__secondary {
-  background-color: #e7e7e7;
-  color: black;
+    background-color: #e7e7e7;
+    color: black;
 }
 
 .action {
-  color: #1890ff;
-  background-color: transparent;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  transition: color 0.2s;
+    color: #1890ff;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s;
 }
 
 .action:hover {
-  color: #40a9ff;
+    color: #40a9ff;
 }
 
 .action:active {
-  color: #40a9ff;
+    color: #40a9ff;
 }
 
 .preloader {
-  height: 100%;
-  position: absolute;
-  top: 30px;
+    height: 100%;
+    position: absolute;
+    top: 50%;
 
 }
 
 section {
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }
 
 section div {
-  flex: auto;
-  width: calc(100% - 400px);
+    flex: auto;
+    width: calc(100% - 400px);
 }
 
 .spinner {
-  border: 8px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 8px solid #3498db;
-  width: 40px;
-  height: 40px;
-  -webkit-animation: spin 1s linear infinite;
-  animation: spin 1s linear infinite;
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #3498db;
+    width: 40px;
+    height: 40px;
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
 
 }
 .row {
-  cursor: pointer;
-  transition: height 0.5s ease-in;
-  height: inherit;
+    cursor: pointer;
+    transition: height 0.5s ease-in;
+    height: inherit;
 }
 
 .row.close {
-  height: 20px;
+    height: 20px;
 }
 .row.open {
-  transition: height 0.5s ease-in;
-  height: fit-content;
+    transition: height 0.5s ease-in;
+    height: fit-content;
 }
 .row:hover {
-  opacity: 1;
+    opacity: 1;
 }
 
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 

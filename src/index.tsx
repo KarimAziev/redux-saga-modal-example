@@ -6,9 +6,8 @@ import store from './store';
 
 ReactDOM.render(
   <Provider store={store}>
-    <section>
-      <App />
-    </section>
+    <App />
+    <DevTools />
   </Provider>,
   document.getElementById('root')
 );

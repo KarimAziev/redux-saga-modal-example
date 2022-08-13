@@ -1,11 +1,5 @@
 import { reducer as modalsReducer } from 'redux-saga-modal';
-import {
-  createStore,
-  applyMiddleware,
-  combineReducers,
-  compose,
-  AnyAction,
-} from 'redux';
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import usersSlice from './users';
 import DevTools from './devTools';
@@ -16,8 +10,6 @@ const reducer = combineReducers({
   modals: modalsReducer,
   // ...your other reducers
   [usersSlice.name]: usersSlice.reducer,
-  actions: (state: AnyAction[] = [], action: AnyAction) =>
-    [...state].concat([action]),
 });
 
 const sagaMiddleware = createSagaMiddleware();

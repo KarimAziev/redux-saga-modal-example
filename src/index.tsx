@@ -1,13 +1,19 @@
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import App from './App';
 import { Provider } from 'react-redux';
 import DevTools from './devTools';
 import store from './store';
 
-ReactDOM.render(
+const domNode = document.getElementById('root');
+const root = createRoot(domNode as unknown as Element);
+
+root.render(
   <Provider store={store}>
-    <App />
-    <DevTools />
-  </Provider>,
-  document.getElementById('root')
+    <section>
+      <App />
+      <aside>
+        <DevTools />
+      </aside>
+    </section>
+  </Provider>
 );

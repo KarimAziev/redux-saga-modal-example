@@ -10,10 +10,10 @@ import {
 } from 'redux-saga/effects';
 import { loadData, removeUser, User } from './users';
 import api from './api';
-import { modal, ConfirmModalOwnProps } from './Modal';
+import { modal } from './Modal';
 import { RootState } from './store';
 
-export const confirmModal = function*(initProps: ConfirmModalOwnProps) {
+export const confirmModal = function* <T>(initProps: T) {
   yield modal.show(initProps);
 
   const [submit]: boolean[] = yield race([
@@ -26,9 +26,12 @@ export const confirmModal = function*(initProps: ConfirmModalOwnProps) {
   return !!submit;
 };
 
-export const removeUserWatcher = function*() {
+export const removeUserWatcher = function* () {
   while (true) {
-    const { payload: userId } = yield take(removeUser.trigger.toString());
+    const action: ReturnType<typeof removeUser.trigger> = yield take(
+      removeUser.trigger.match
+    );
+    const userId = action.payload;
 
     const user: User = yield select((state: RootState) =>
       state.users.data.find(({ id }) => id === userId)
@@ -73,9 +76,9 @@ export const fetchUsers = function* remove() {
   }
 };
 
-export default function* rootAppSaga() {
+export const rootAppSaga = function* rootAppSaga() {
   yield all([
     fork(removeUserWatcher),
     takeLatest(loadData.trigger, fetchUsers),
   ]);
-}
+};

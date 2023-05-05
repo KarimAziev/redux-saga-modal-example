@@ -1,11 +1,12 @@
 import { User } from './users';
 
+const generateRandomNums = (max: number, min: number) =>
+  Math.floor(Math.random() * (max - min) + min);
+
 export const mockApi = <Response>(_args: any, resp: Response) =>
   new Promise<Response>((resolve, _reject) =>
     setTimeout(() => resolve(resp), generateRandomNums(500, 700))
   );
-const generateRandomNums = (max: number, min: number) =>
-  Math.floor(Math.random() * (max - min) + min);
 
 const names = [
   'Pamela Cummings',

@@ -16,6 +16,7 @@ export interface InitialState {
   data: User[];
   status: 'idle' | 'loading' | 'failed';
   error?: string;
+  loadingIds: Record<User['id'], boolean>;
 }
 
 export const loadData = {
@@ -36,7 +37,8 @@ export const removeUser = {
 
 const initialState: InitialState = {
   data: [],
-  status: 'loading',
+  status: 'idle',
+  loadingIds: {},
 };
 
 const usersSlice = createSlice({
@@ -54,8 +56,14 @@ const usersSlice = createSlice({
       .addCase(loadData.fulfill, (state) => {
         state.status = 'idle';
       })
+      .addCase(removeUser.request, (state, { payload }) => {
+        state.loadingIds[payload] = true;
+      })
       .addCase(removeUser.success, (state, { payload }) => {
         state.data = state.data.filter(({ id }: User) => id !== payload);
+      })
+      .addCase(removeUser.fulfill, (state, { payload }) => {
+        delete state.loadingIds[payload];
       });
   },
 });

@@ -26,6 +26,18 @@ export const confirmModal = function* <T>(initProps: T) {
   return !!submit;
 };
 
+const removeWorker = function* remove(key: string) {
+  try {
+    yield put(removeUser.request(key));
+    yield call(api.remove, key, { ok: true });
+    yield put(removeUser.success(key));
+  } catch (err) {
+    yield put(removeUser.failure(key));
+  } finally {
+    yield put(removeUser.fulfill(key));
+  }
+};
+
 export const removeUserWatcher = function* () {
   while (true) {
     const action: ReturnType<typeof removeUser.trigger> = yield take(
@@ -49,18 +61,6 @@ export const removeUserWatcher = function* () {
     }
 
     yield call(removeWorker, userId);
-  }
-};
-
-export const removeWorker = function* remove(key: string) {
-  try {
-    yield put(removeUser.request(key));
-    yield call(api.remove, key, { ok: true });
-    yield put(removeUser.success(key));
-  } catch (err) {
-    yield put(removeUser.failure(key));
-  } finally {
-    yield put(removeUser.fulfill(key));
   }
 };
 

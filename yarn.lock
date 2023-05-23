@@ -7903,10 +7903,10 @@ redux-devtools-themes@^1.0.0:
   dependencies:
     base16 "^1.0.0"
 
-redux-saga-modal@^1.3.1:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/redux-saga-modal/-/redux-saga-modal-1.3.1.tgz#257d153422fd84dc8dc7965826434287201d71c7"
-  integrity sha512-eex+Krc+VVC5FPesBuNExLE1kErrTy1qjwf7zlXX/1WaPzKIA0kM2UgxwRLw2Wcxc+BfUAlrm6X9U13nN2UHkg==
+redux-saga-modal@1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/redux-saga-modal/-/redux-saga-modal-1.3.2.tgz#457f9f3430c9bb15ae23fa02ace8aeef57140cd8"
+  integrity sha512-JbSE/2p5iORY14CkCPwSyHWHNP0kxNGZ0RPsOYEsVpdy14pNMY1SPkZf0fTFoeQTPDDLUCAxM84YYJHLpnuRag==
   dependencies:
     hoist-non-react-statics "^3.3.2"
 

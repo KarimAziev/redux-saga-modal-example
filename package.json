@@ -1,7 +1,6 @@
 {
   "name": "redux-saga-modal-example",
   "version": "0.1.0",
-	"main": "./build/index.html",
   "private": false,
   "dependencies": {
     "@redux-devtools/core": "^3.13.1",

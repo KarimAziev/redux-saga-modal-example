@@ -1,12 +1,9 @@
+import { ReactNode } from 'react';
 import {
   sagaModal,
   createModal,
   SagaModalInjectedProps,
 } from 'redux-saga-modal';
-import ReactModal from 'react-modal';
-import { ReactNode } from 'react';
-
-ReactModal.setAppElement('#root');
 
 export interface ConfirmModalOwnProps {
   title: ReactNode;
@@ -14,7 +11,6 @@ export interface ConfirmModalOwnProps {
 }
 
 const Confirm: React.FC<ConfirmModalOwnProps & SagaModalInjectedProps> = ({
-  isOpen,
   submit,
   hide,
   title,
@@ -24,12 +20,7 @@ const Confirm: React.FC<ConfirmModalOwnProps & SagaModalInjectedProps> = ({
     submit();
   };
   return (
-    <ReactModal
-      isOpen={isOpen}
-      onRequestClose={hide}
-      closeTimeoutMS={500}
-      className={'modal'}
-    >
+    <div className="modal">
       <h3>{title}</h3>
       <p>{text}</p>
       <div>
@@ -49,7 +40,7 @@ const Confirm: React.FC<ConfirmModalOwnProps & SagaModalInjectedProps> = ({
           Confirm
         </button>
       </div>
-    </ReactModal>
+    </div>
   );
 };
 
@@ -59,4 +50,4 @@ const ConnectedConfirmModal = sagaModal({
   name: modal.name,
 })(Confirm);
 
-export { modal, ConnectedConfirmModal };
+export { ConnectedConfirmModal, modal };

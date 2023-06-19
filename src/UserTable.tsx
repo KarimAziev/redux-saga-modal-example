@@ -1,37 +1,18 @@
 import * as React from 'react';
-import { ActionButton } from './ActionButton';
-import { useAppSelector, useAppDispatch } from './hooks';
-import { makeTable, TableConfig } from './table';
-import {
-  User,
-  usersLoadingSelector,
-  loadData,
-  usersSelector,
-  removeUser,
-} from './users';
+import { config } from './config';
+import { useAppDispatch, useAppSelector } from './hooks';
+import { makeTable } from './table';
+import { User, loadData, usersLoadingSelector, usersSelector } from './users';
+import { UserRow } from './UserRow';
 
-export const config: TableConfig<User, 'id' | 'name'> = {
-  name: { title: 'Name' },
-  id: {
-    title: 'Action',
-    render: (value) => (
-      <ActionButton
-        className={'action'}
-        action={removeUser.trigger.bind(null, value)}
-      >
-        Delete
-      </ActionButton>
-    ),
-  },
-};
-
-const Table = makeTable<User, typeof config>(config);
+const Table = makeTable<User, typeof config>(config, {
+  components: { tr: UserRow },
+});
 
 export const UsersTable = () => {
   const dispatch = useAppDispatch();
   const data = useAppSelector((state) => usersSelector(state));
   const loading = useAppSelector((state) => usersLoadingSelector(state));
-  const loadingIds = useAppSelector((state) => state.users.loadingIds);
 
   React.useEffect(() => {
     if (!loading && data.length <= 0) {
@@ -39,12 +20,5 @@ export const UsersTable = () => {
     }
   }, [dispatch, loading, data]);
 
-  return (
-    <Table
-      rows={data}
-      loading={loading}
-      loadingIds={loadingIds}
-      idAttr={'id'}
-    />
-  );
+  return <Table rows={data} loading={loading} idAttr={'id'} />;
 };

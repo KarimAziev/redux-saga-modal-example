@@ -13,7 +13,8 @@ table {
 aside {
   flex: auto;
   position: relative;
-  min-height: 100vh;
+  max-height: 90vh;
+  max-width: 350px;
 }
 
 td,
@@ -26,40 +27,22 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-.ReactModal__Overlay {
-  opacity: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  transition: all 0.2s ease;
-}
-
-.ReactModal__Overlay--after-open {
-  opacity: 1;
-}
-
-.ReactModal__Overlay--before-close {
-  opacity: 0;
-}
-
 .modal {
   margin: auto;
-  position: relative;
+  position: absolute;
   top: 30%;
+  left: 30%;
   border: 1px solid rgb(204, 204, 204);
   background: rgb(255, 255, 255);
   overflow: auto;
   border-radius: 4px;
   outline: none;
-  width: 80%;
+  width: 300px;
   max-width: 400px;
   padding: 20px;
-  resize: horizontal;
+  resize: both;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   animation-name: animatetop;
-  animation-duration: 0.1s;
-}
-
-.ReactModal__Overlay--before-close .modal {
-  animation-name: animatebottom;
   animation-duration: 0.1s;
 }
 
@@ -123,6 +106,10 @@ tr:nth-child(even) {
   transition: color 0.2s;
 }
 
+.action:disabled {
+  color: grey;
+}
+
 .action:hover {
   color: #40a9ff;
 }
@@ -131,34 +118,18 @@ tr:nth-child(even) {
   color: #40a9ff;
 }
 
-/* .preloader { */
-/*     height: 100%; */
-/*     position: absolute; */
-/*     top: 100%; */
-/* } */
-
-/* .spinner { */
-/*     border: 8px solid #f3f3f3; */
-/*     border-radius: 50%; */
-/*     border-top: 8px solid #3498db; */
-/*     width: 40px; */
-/*     height: 40px; */
-/*     -webkit-animation: spin 1s linear infinite; */
-/*     animation: spin 1s linear infinite; */
-
-/* } */
 .row {
-  cursor: pointer;
-  transition: height 0.5s ease-in;
   height: inherit;
 }
 
-.row.close {
-  height: 20px;
+.row.loading {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.5;
 }
+
 .row.open {
-  transition: height 0.5s ease-in;
-  height: fit-content;
+  outline: 2px solid #1890ff;
 }
 .row:hover {
   opacity: 1;

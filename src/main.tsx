@@ -1,7 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import App from './App';
 import { Provider } from 'react-redux';
-import DevTools from './devTools';
+import { DevTools } from './devTools';
 import store from './store';
 
 const domNode = document.getElementById('root');

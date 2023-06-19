@@ -1,9 +1,9 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import { reducer as modalsReducer } from 'redux-saga-modal';
-import DevTools from './devTools';
+import { DevTools } from './devTools';
 import { rootAppSaga } from './saga';
-import usersSlice from './users';
+import usersSlice, { usersLoadingSlice } from './users';
 
 const sagaMiddleware = createSagaMiddleware();
 const rootReducer = combineReducers({
@@ -11,6 +11,7 @@ const rootReducer = combineReducers({
   modals: modalsReducer,
   // ...your other reducers
   [usersSlice.name]: usersSlice.reducer,
+  [usersLoadingSlice.name]: usersLoadingSlice.reducer,
 });
 export type RootState = ReturnType<typeof rootReducer>;
 export const store = configureStore({

@@ -3,8 +3,8 @@ import { User } from './users';
 const generateRandomNums = (max: number, min: number) =>
   Math.floor(Math.random() * (max - min) + min);
 
-export const mockApi = <Response>(_args: any, resp: Response) =>
-  new Promise<Response>((resolve, _reject) =>
+export const mockApi = <Response, Args>(_args: Args, resp: Response) =>
+  new Promise<Response>((resolve) =>
     setTimeout(() => resolve(resp), generateRandomNums(500, 700))
   );
 
@@ -289,7 +289,7 @@ const countries = [
 const createUsers = (): User[] =>
   new Array(names.length).fill({}, 0, names.length).map((obj, idx) => ({
     ...obj,
-    id: `${idx}`,
+    id: `u${idx}`,
     name: names[idx],
     age: generateRandomNums(18, 40),
     country: countries[generateRandomNums(0, countries.length)],

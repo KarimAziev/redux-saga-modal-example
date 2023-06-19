@@ -54,6 +54,7 @@ export const removeUserWatcher = function* () {
     const confirm: boolean = yield call(confirmModal, {
       title: `Remove ${user.name}?`,
       text: `Are you sure want to remove ${user.name}?`,
+      id: user.id,
     });
 
     if (!confirm) {
